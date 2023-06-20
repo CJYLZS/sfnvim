@@ -1,14 +1,23 @@
+function system(cmd)
+	local output = vim.fn.system(cmd)
+	if vim.v.shell_error ~= 0 then
+		print(cmd .. " return code " .. vim.v.shell_error)
+		print(output)
+	end
+end
 function py_formatter(filepath)
-	local command = "python3 -m autopep8 -i " .. vim.fn.shellescape(filepath)
-	vim.fn.system(command)
+	system("python3 -m autopep8 -i " .. vim.fn.shellescape(filepath))
 end
 function lua_formatter(filepath)
-	local command = "stylua " .. vim.fn.shellescape(filepath)
-	vim.fn.system(command)
+	system("stylua " .. vim.fn.shellescape(filepath))
+end
+function sh_formatter(filepath)
+	system("shfmt -i 4 -w " .. vim.fn.shellescape(filepath))
 end
 local formatter_table = {
 	py = py_formatter,
 	lua = lua_formatter,
+	sh = sh_formatter,
 }
 
 function GetFileExtension(filepath)
@@ -34,12 +43,11 @@ _G.my_formatter = function()
 
 	-- Check if the file is a Python file
 	local ext = GetFileExtension(real_filepath)
-	print("file ext name is " .. ext)
 	if formatter_table[ext] == nil then
-		print(ext .. " file not have formatter")
+		print(" not found formatter for " .. ext .. " file")
 		return
 	end
-
+	print("format for " .. ext .. " file")
 	vim.cmd("silent :w")
 	formatter_table[ext](real_filepath)
 	vim.cmd("silent :e!")
