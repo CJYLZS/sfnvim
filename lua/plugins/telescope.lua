@@ -1,14 +1,13 @@
-return
-{
-    'nvim-telescope/telescope.nvim',
-    -- tag = '0.1.1',
-    cmd = 'Telescope',
-    version = false,
-    keys = {
-        { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
-        { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-    },
-    dependencies = { 'nvim-lua/plenary.nvim' }
+return {
+	"nvim-telescope/telescope.nvim",
+	-- tag = '0.1.1',
+	cmd = "Telescope",
+	version = false,
+	keys = {
+		{ "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
+		{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+	},
+	dependencies = { "nvim-lua/plenary.nvim" },
 }
 
 -- fuzzy finder
