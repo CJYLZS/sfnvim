@@ -31,7 +31,7 @@ return {
 				-- like `size`, width and height can be a number or function which is passed the current terminal
 				-- width = <value>,
 				-- height = <value>,
-				winblend = 50,
+				-- winblend = 50,
 				-- zindex = <value>,
 			},
 		})
