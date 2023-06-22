@@ -12,14 +12,14 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
 vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- Better window resizing
-vim.api.nvim_set_keymap("n", "<C-Up>", ":resize +5<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-Down>", ":resize -5<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -5<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +5<CR>", { silent = true })
-vim.api.nvim_set_keymap("t", "<C-Up>", ":resize +5<CR>", { silent = true })
-vim.api.nvim_set_keymap("t", "<C-Down>", ":resize -5<CR>", { silent = true })
-vim.api.nvim_set_keymap("t", "<C-Left>", ":vertical resize -5<CR>", { silent = true })
-vim.api.nvim_set_keymap("t", "<C-Right>", ":vertical resize +5<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-Up>", ":resize +2<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-Down>", ":resize -2<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
+vim.api.nvim_set_keymap("t", "<C-Up>", ":resize +2<CR>", { silent = true })
+vim.api.nvim_set_keymap("t", "<C-Down>", ":resize -2<CR>", { silent = true })
+vim.api.nvim_set_keymap("t", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
+vim.api.nvim_set_keymap("t", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>q", "<Cmd>qa<CR>")
 vim.keymap.set("n", "<leader>Q", "<Cmd>qa!<CR>")
@@ -36,7 +36,3 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
--- neotree
--- vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>NeoTree Toggle<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>NeoTree Focus<CR>', { noremap = true, silent = true })

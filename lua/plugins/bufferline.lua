@@ -13,13 +13,13 @@ return {
 		bufferline.setup({
 			options = {
 				buffer_close_icon = "x",
-				show_buffer_icons = false,
+				show_buffer_icons = true,
                 -- stylua: ignore
                 close_command = function(n) require("mini.bufremove").delete(n, false) end,
                 -- stylua: ignore
                 right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
 				diagnostics = "nvim_lsp",
-				always_show_bufferline = false,
+				always_show_bufferline = true,
 				-- diagnostics_indicator = function(_, _, diag)
 				-- 	local icons = require("lazyvim.config").icons.diagnostics
 				-- 	local ret = (diag.error and icons.Error .. diag.error .. " " or "")

@@ -1,6 +1,6 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v2.x",
+	-- branch = "v2.x",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-tree/nvim-web-devicons" }, -- not strictly required, but recommended
@@ -29,60 +29,29 @@ return {
 			enable_diagnostics = true,
 			open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
 			sort_case_insensitive = false, -- used when sorting files and directories in the tree
-			sort_function = nil, -- use a custom function for sorting files and directories in the tree
-			-- sort_function = function (a,b)
-			--       if a.type == b.type then
-			--           return a.path > b.path
-			--       else
-			--           return a.type > b.type
-			--       end
-			--   end , -- this sorts files and directories descendantly
 
-			-- hide default statusline
-			event_handlers = {
-				{
-					event = "neo_tree_buffer_enter",
-					handler = function()
-						vim.o.laststatus = 0
-					end,
-				},
-			},
 			default_component_configs = {
-				container = {
-					enable_character_fade = true,
-				},
 				indent = {
-					indent_size = 2,
-					padding = 1, -- extra padding on left hand side
-					-- indent guides
-					with_markers = true,
-					indent_marker = "│",
-					last_indent_marker = "└",
-					highlight = "NeoTreeIndentMarker",
-					-- expander config, needed for nesting files
-					with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
-					expander_collapsed = "",
-					expander_expanded = "",
-					expander_highlight = "NeoTreeExpander",
+					indent_size = 1,
 				},
 				icon = {
-					folder_closed = "+",
-					folder_open = "-",
+					-- folder_closed = "+",
+					-- folder_open = "-",
 					-- folder_empty = "ﰊ",
 					-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 					-- then these will never be used.
-					default = "*",
-					highlight = "NeoTreeFileIcon",
+					-- default = "*",
+					-- highlight = "NeoTreeFileIcon",
 				},
-				modified = {
-					symbol = "[+]",
-					highlight = "NeoTreeModified",
-				},
-				name = {
-					trailing_slash = false,
-					use_git_status_colors = true,
-					highlight = "NeoTreeFileName",
-				},
+				-- modified = {
+				-- 	symbol = "[+]",
+				-- 	highlight = "NeoTreeModified",
+				-- },
+				-- name = {
+				-- 	trailing_slash = false,
+				-- 	use_git_status_colors = true,
+				-- 	highlight = "NeoTreeFileName",
+				-- },
 				git_status = {
 					symbols = {
 						-- Change type
@@ -105,7 +74,7 @@ return {
 			commands = {},
 			window = {
 				position = "left",
-				width = 35,
+				width = 25,
 				mapping_options = {
 					noremap = true,
 					nowait = true,
@@ -188,10 +157,10 @@ return {
 						--".null-ls_*",
 					},
 				},
-				follow_current_file = false, -- This will find and focus the file in the active buffer every
 				-- time the current file is changed while the tree is open.
 				group_empty_dirs = false, -- when true, empty folders will be grouped together
 				hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+				follow_current_file = true, -- This will find and focus the file in the active buffer every
 				-- in whatever position is specified in window.position
 				-- "open_current",  -- netrw disabled, opening a directory opens within the
 				-- window like netrw would, regardless of window.position
@@ -223,32 +192,32 @@ return {
 
 				commands = {}, -- Add a custom command or override a global one using the same function name
 				components = {
-					icon = function(config, node, state)
-						local icon = config.default or "F"
-						local padding = config.padding or " "
-						local highlight = config.highlight -- or highlights.FILE_ICON
-
-						if node.type == "directory" then
-							-- highlight = highlights.DIRECTORY_ICON
-							if node:is_expanded() then
-								icon = config.folder_open or "-"
-							else
-								icon = config.folder_closed or "+"
-							end
-							-- elseif node.type == "file" then
-							--     -- local success, web_devicons = pcall(require, "nvim-web-devicons")
-							--     -- if success then
-							--     --     local devicon, hl = web_devicons.get_icon(node.name, node.ext)
-							--     --     icon = devicon or icon
-							--     --     highlight = hl or highlight
-							--     -- end
-						end
-
-						return {
-							text = icon .. padding,
-							highlight = highlight,
-						}
-					end,
+					-- icon = function(config, node, state)
+					-- 	local icon = config.default or "F"
+					-- 	local padding = config.padding or " "
+					-- 	local highlight = config.highlight -- or highlights.FILE_ICON
+					--
+					-- 	if node.type == "directory" then
+					-- 		-- highlight = highlights.DIRECTORY_ICON
+					-- 		if node:is_expanded() then
+					-- 			icon = config.folder_open or "-"
+					-- 		else
+					-- 			icon = config.folder_closed or "+"
+					-- 		end
+					-- 		-- elseif node.type == "file" then
+					-- 		--     -- local success, web_devicons = pcall(require, "nvim-web-devicons")
+					-- 		--     -- if success then
+					-- 		--     --     local devicon, hl = web_devicons.get_icon(node.name, node.ext)
+					-- 		--     --     icon = devicon or icon
+					-- 		--     --     highlight = hl or highlight
+					-- 		--     -- end
+					-- 	end
+					--
+					-- 	return {
+					-- 		text = icon .. padding,
+					-- 		highlight = highlight,
+					-- 	}
+					-- end,
 				},
 			},
 			buffers = {
