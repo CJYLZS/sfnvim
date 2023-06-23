@@ -1,8 +1,9 @@
+-- terminal support
 return {
 	"akinsho/toggleterm.nvim",
 	cmd = { "ToggleTerm", "TermExec" },
 	keys = {
-		{ "<Leader><CR>", "<cmd>ToggleTerm<cr>", desc = "Horizontal Term" },
+		{ "<Leader><CR>", "<cmd>ToggleTerm direction=float<cr>", desc = "Horizontal Term" },
 		{ "<Leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float Term" },
 		{ "<Leader>th", "<cmd>ToggleTerm direction=horizontal size=10<cr>", desc = "Float Term" },
 	},

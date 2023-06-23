@@ -1,0 +1,20 @@
+git
+
+telescope
+    rg
+
+nvim-treesitter
+    gcc
+    g++
+
+
+python:
+    python3
+    pylsp
+    python3 -m autopep8
+
+lua:
+    stylua
+sh:
+    shfmt
+

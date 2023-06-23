@@ -30,7 +30,11 @@ local plugins = {
 	require("plugins.nvim-autopairs"),
 	require("plugins.auto-session"),
 	require("plugins.lightspeed"),
-    require("plugins.lualine")
+    require("plugins.lualine"),
+    require("plugins.gitsigns"),
+    require("plugins.aerial"),
+    require("plugins.nvim-ufo"),
+    require("plugins.noice")
 }
 local opts = {}
 require("lazy").setup({ plugins, opts })

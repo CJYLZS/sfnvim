@@ -14,6 +14,8 @@ return {
 			options = {
 				buffer_close_icon = "x",
 				show_buffer_icons = true,
+				left_trunc_marker = "",
+				right_trunc_marker = "",
                 -- stylua: ignore
                 close_command = function(n) require("mini.bufremove").delete(n, false) end,
                 -- stylua: ignore

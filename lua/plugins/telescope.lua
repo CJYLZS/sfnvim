@@ -5,7 +5,8 @@ return {
 	version = false,
 	keys = {
 		{ "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
-		{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+		{ "<leader>/", "<cmd>Telescope live_grep<CR>", desc = "live grep" },
+		{ "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Recent" },
 		{ "<leader>ff", ":Telescope find_files <CR>", desc = "find files" },
 	},
 	dependencies = { "nvim-lua/plenary.nvim" },

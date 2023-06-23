@@ -1,6 +1,7 @@
 return {
 	"goolord/alpha-nvim",
-	config = function()
+	event = "VimEnter",
+	opts = function()
 		local dashboard = require("alpha.themes.dashboard")
 		local logo = [[
     _   _ ______ ______      _______ __  __
@@ -9,19 +10,18 @@ return {
     | . ` |  __|| |  | |\ \/ /   | | | |\/| |
     | |\  | |___| |__| | \  /   _| |_| |  | |
     |_| \_|______\____/   \/   |_____|_|  |_|
-]]
+      ]]
 
 		dashboard.section.header.val = vim.split(logo, "\n")
 		dashboard.section.buttons.val = {
-			dashboard.button("f", "Find file", ":Telescope find_files <CR>"),
-			dashboard.button("t", "Open terminal", ":ToggleTerm<CR>"),
-			dashboard.button("n", "New file", ":ene <BAR> startinsert <CR>"),
-			dashboard.button("l", "Open lazy.nvim", ":Lazy<CR>"),
-			dashboard.button("q", "Quit", ":qa<CR>"),
-			-- dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-			-- dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+			dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+			-- dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+			dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+			dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
 			-- dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-			-- dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+			dashboard.button("s", " " .. " Restore Session", [[:lua require("auto-session.session-lens").search_session() <cr>]]),
+			dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
+			dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 		}
 		for _, button in ipairs(dashboard.section.buttons.val) do
 			button.opts.hl = "AlphaButtons"
@@ -30,8 +30,10 @@ return {
 		dashboard.section.header.opts.hl = "AlphaHeader"
 		dashboard.section.buttons.opts.hl = "AlphaButtons"
 		dashboard.section.footer.opts.hl = "AlphaFooter"
-		dashboard.opts.layout[1].val = 8
-
+		dashboard.opts.layout[1].val = 3
+		return dashboard
+	end,
+	config = function(_, dashboard)
 		-- close Lazy and re-open when the dashboard is ready
 		if vim.o.filetype == "lazy" then
 			vim.cmd.close()

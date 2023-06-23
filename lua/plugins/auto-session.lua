@@ -3,7 +3,14 @@ return {
 	config = function()
 		local function close_neo_tree()
 			require("neo-tree.sources.manager").close_all()
-			vim.notify("closed all")
+		end
+
+		local function close_aerial()
+			local success, module = pcall(require, "aerial")
+			if not success then
+				return
+			end
+			module.close_all()
 		end
 
 		local function open_neo_tree()
@@ -20,10 +27,16 @@ return {
 			-- bypass_session_save_file_types = { "neo-tree" },
 			pre_save_cmds = {
 				close_neo_tree,
+				close_aerial,
 			},
 			-- post_restore_cmds = {
 			-- 	open_neo_tree,
 			-- },
+		})
+		-- Set mapping for searching a session.
+		-- ⚠️ This will only work if Telescope.nvim is installed
+		vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, {
+			noremap = true,
 		})
 	end,
 }
