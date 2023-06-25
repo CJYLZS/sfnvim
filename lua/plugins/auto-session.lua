@@ -1,7 +1,7 @@
 -- session save and restore
 return {
     "rmagatti/auto-session",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     config = function()
         local function close_neo_tree()
             require("neo-tree.sources.manager").close_all()
