@@ -35,6 +35,7 @@ local plugins = {
     require("plugins.aerial"),
     require("plugins.nvim-ufo"),
     require("plugins.noice"),
+    require("plugins.nvim-osc52"),
 }
 local opts = {}
 require("lazy").setup({ plugins, opts })
