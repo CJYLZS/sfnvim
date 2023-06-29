@@ -11,6 +11,8 @@ return {
     },
     opts = function()
         local cmp = require("cmp")
+        -- Set the transparency of the nvim-cmp completion window
+        vim.o.pumblend = 20
         return {
             completion = {
                 completeopt = "menu,menuone,noinsert",
