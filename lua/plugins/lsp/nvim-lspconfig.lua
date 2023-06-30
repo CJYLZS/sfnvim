@@ -13,7 +13,7 @@ return {
             settings = {
                 pylsp = {
                     plugins = {
-                        autopep8 = {enabled = false},
+                        autopep8 = { enabled = false },
                         pycodestyle = {
                             enabled = false,
                             ignore = { "W391" },
