@@ -22,6 +22,10 @@ return {
                         pylsp_mypy = { enabled = false },
                         pylint = { enabled = false },
                         pyflakes = { enabled = false },
+                        jedi = {
+                            -- extra analyze path
+                            extra_paths = {},
+                        },
                     },
                 },
             },
