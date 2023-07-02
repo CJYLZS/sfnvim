@@ -5,6 +5,10 @@ return {
     keys = {
         { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
         { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
+        { "<C-n>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next buffer" },
+        { "<C-p>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev buffer" },
+        { "<leader>bn", "<Cmd>BufferLineMoveNext<CR>", desc = "Move buffer next" },
+        { "<leader>bN", "<Cmd>BufferLineMovePrev<CR>", desc = "Move buffer prev" },
     },
     version = "*",
     dependencies = "nvim-tree/nvim-web-devicons",
