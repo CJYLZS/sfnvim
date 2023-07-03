@@ -36,7 +36,8 @@ local plugins = {
     require("plugins.nvim-ufo"),
     require("plugins.noice"),
     require("plugins.nvim-osc52"),
-    require("plugins.treesitter-playground")
+    require("plugins.treesitter-playground"),
+    require("plugins.nvim-bufsurf")
 }
 local opts = {}
 require("lazy").setup({ plugins, opts })
