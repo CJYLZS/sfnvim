@@ -1,5 +1,6 @@
 return{
     "CJYLZS/nvim-bufsurf",
+    event = {"BufEnter"},
     config = function()
         require("nvim-bufsurf").setup()
         vim.api.nvim_set_keymap("n", "<C-P>", "<CMD>BufsurfBackward<CR>", { silent = true })

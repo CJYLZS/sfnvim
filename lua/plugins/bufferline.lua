@@ -17,6 +17,7 @@ return {
         local bufferline = require("bufferline")
         bufferline.setup({
             options = {
+                numbers = "buffer_id",
                 buffer_close_icon = "x",
                 show_buffer_icons = true,
                 left_trunc_marker = "",
