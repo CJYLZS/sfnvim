@@ -3,7 +3,7 @@ return {
     "ojroques/nvim-osc52",
     keys = {
         {
-            "<leader>c",
+            "<C-c>",
             function()
                 require("osc52").copy_visual()
             end,

@@ -1,19 +1,19 @@
 -- formatter
 
-function system(cmd)
+local function system(cmd)
     local output = vim.fn.system(cmd)
     if vim.v.shell_error ~= 0 then
         vim.notify(cmd .. " return code " .. vim.v.shell_error, vim.log.levels.ERROR)
         vim.notify(output, vim.log.levels.INFO)
     end
 end
-function py_formatter(filepath)
+local function py_formatter(filepath)
     system("python3 -m autopep8 -i " .. vim.fn.shellescape(filepath))
 end
-function lua_formatter(filepath)
+local function lua_formatter(filepath)
     system("stylua --indent-type Spaces --indent-width 4 " .. vim.fn.shellescape(filepath))
 end
-function sh_formatter(filepath)
+local function sh_formatter(filepath)
     system("shfmt -i 4 -w " .. vim.fn.shellescape(filepath))
 end
 local formatter_table = {

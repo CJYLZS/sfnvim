@@ -8,6 +8,7 @@ local options = {
     smarttab = true,
     expandtab = true,
     list = true,
+    signcolumn = "yes" -- always set signcolumn, prevent text move when first sign occured
 }
 for key, value in pairs(options) do
     vim.o[key] = value
