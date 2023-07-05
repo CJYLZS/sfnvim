@@ -31,7 +31,8 @@ return {
             },
         })
         -- lua-lsp-server
-        require("lspconfig").lua_ls.setup({
+        lspconfig.lua_ls.setup({
+            on_attach = on_attach,
             settings = {
                 Lua = {
                     runtime = {
@@ -42,6 +43,7 @@ return {
                         enable = true,
                         -- Get the language server to recognize the `vim` global
                         globals = { "vim" },
+                        disable = { "different-requires" },
                     },
                     workspace = {
                         -- Make the server aware of Neovim runtime files
@@ -56,5 +58,35 @@ return {
             },
         })
         -- bash lsp server
+        -- npm i -g bash-language-server
+        lspconfig.bashls.setup({
+            on_attach = on_attach,
+        })
+        --Enable (broadcasting) snippet capability for completion
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+        -- vscode extract servers
+        lspconfig.jsonls.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+        })
+        lspconfig.cssls.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+        })
+        lspconfig.html.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+        })
+        lspconfig.eslint.setup({
+            on_attach = on_attach,
+            --- ...
+            -- on_attach = function(client, bufnr)
+            --     vim.api.nvim_create_autocmd("BufWritePre", {
+            --         buffer = bufnr,
+            --         command = "EslintFixAll",
+            --     })
+            -- end,
+        })
     end,
 }
