@@ -1,0 +1,9 @@
+{
+  "F-string": {
+    "prefix": "f",
+    "body": [
+      "f'{$1}$2'$3"
+    ],
+    "description": "Inserts a Python f-string"
+  }
+}
