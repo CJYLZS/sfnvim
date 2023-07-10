@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+    require("plugins.auto-session"),
     require("plugins.alpha"),
     require("plugins.bufremove"),
     require("plugins.bufferline"),
@@ -28,7 +29,6 @@ local plugins = {
     require("plugins.comment"),
     require("plugins.nvim-surround"),
     require("plugins.nvim-autopairs"),
-    require("plugins.auto-session"),
     require("plugins.lightspeed"),
     require("plugins.lualine"),
     require("plugins.gitsigns"),
@@ -39,7 +39,9 @@ local plugins = {
     require("plugins.treesitter-playground"),
     require("plugins.nvim-bufsurf"),
     require("plugins.luasnip"),
-    require("plugins.nvim-cursorline")
+    require("plugins.nvim-cursorline"),
+    require("plugins.indent-blankline"),
+    require("plugins.telescope-file-browser"),
 }
 local opts = {}
 require("lazy").setup({ plugins, opts })
