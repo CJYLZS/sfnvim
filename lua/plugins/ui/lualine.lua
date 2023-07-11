@@ -22,7 +22,9 @@ return {
                       cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
                     },
                 },
-                lualine_x = {},
+                lualine_x = {
+                    "encoding",
+                },
                 lualine_y = {
                     { "progress", separator = " ", padding = { left = 1, right = 0 } },
                     { "location", padding = { left = 0, right = 1 } },
