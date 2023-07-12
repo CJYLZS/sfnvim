@@ -6,6 +6,7 @@ return {
         { "<Leader><CR>", "<cmd>ToggleTerm<cr>", desc = "Horizontal Term" },
         { "<Leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float Term" },
         { "<Leader>th", "<cmd>ToggleTerm direction=horizontal size=10<cr>", desc = "Horizontal Term" },
+        { "<Leader>tv", "<cmd>ToggleTerm direction=vertical size=50<cr>", desc = "Vertical Term" },
     },
     opts = {
         size = 10,

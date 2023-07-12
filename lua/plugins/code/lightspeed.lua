@@ -27,7 +27,9 @@ return {
         })
         vim.cmd("unmap s")
         vim.cmd("unmap S")
-        vim.api.nvim_set_keymap("n", "<leader>j", "<Plug>Lightspeed_s", {})
-        vim.api.nvim_set_keymap("n", "<leader>k", "<Plug>Lightspeed_S", {})
+        vim.cmd("unmap f")
+        vim.cmd("unmap F")
+        vim.api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})
+        vim.api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", {})
     end,
 }

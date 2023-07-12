@@ -88,6 +88,7 @@ return {
                     -- ["<2-LeftMouse>"] = "open",
                     ["<leftrelease>"] = "open",
                     ["<cr>"] = "open",
+                    ["o"] = "open",
                     ["<esc>"] = "revert_preview",
                     ["P"] = { "toggle_preview", config = { use_float = true } },
                     ["l"] = "focus_preview",
@@ -100,7 +101,7 @@ return {
                     -- ["t"] = "open_tab_drop",
                     ["w"] = "open_with_window_picker",
                     --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
-                    ["C"] = "close_node",
+                    ["c"] = "close_node",
                     -- ['C'] = 'close_all_subnodes',
                     ["z"] = "close_all_nodes",
                     --["Z"] = "expand_all_nodes",
@@ -118,7 +119,7 @@ return {
                     ["y"] = "copy_to_clipboard",
                     ["x"] = "cut_to_clipboard",
                     ["p"] = "paste_from_clipboard",
-                    ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
+                    ["C"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
                     -- ["c"] = {
                     --  "copy",
                     --  config = {

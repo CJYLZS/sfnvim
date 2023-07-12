@@ -21,6 +21,31 @@ vim.keymap.set("n", "<leader>q", "<Cmd>qa<CR>")
 vim.keymap.set("n", "<leader>Q", "<Cmd>qa!<CR>")
 vim.keymap.set("n", "<C-s>", "<Cmd>w<CR>")
 vim.keymap.set("i", "<C-s>", "<Cmd>w<CR>")
+local function buffer_include(name)
+    if not name then
+        return false
+    end
+    -- exclude names like ['.*neo-tree filesystem.*', 'term://.*']
+    local exclusion_patterns = {
+        ".*neo%-tree filesystem.*",
+        "term://.*",
+    }
+    for _, pattern in ipairs(exclusion_patterns) do
+        if string.match(name, pattern) then
+            return false
+        end
+    end
+    return true
+end
+-- jump into file directory
+vim.keymap.set("n", "<leader>G", function()
+    local bufname = vim.api.nvim_buf_get_name(0)
+    if not buffer_include(bufname) then
+        return
+    end
+    local dirname = vim.fs.dirname(bufname)
+    vim.cmd("cd " .. dirname)
+end)
 
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
