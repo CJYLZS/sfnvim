@@ -31,5 +31,7 @@ return {
         vim.cmd("unmap F")
         vim.api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})
         vim.api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", {})
+        vim.api.nvim_set_keymap("v", "f", "<Plug>Lightspeed_s", {})
+        vim.api.nvim_set_keymap("v", "F", "<Plug>Lightspeed_S", {})
     end,
 }
