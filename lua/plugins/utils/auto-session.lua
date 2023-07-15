@@ -37,8 +37,26 @@ return {
         })
         -- Set mapping for searching a session.
         -- ⚠️ This will only work if Telescope.nvim is installed
-        vim.keymap.set("n", "<leader>s", require("auto-session.session-lens").search_session, {
-            noremap = true,
-        })
+        if vim.fn.executable("fd") == 1 then
+            -- sort by modify time
+            cmd = {
+                "sh",
+                "-c",
+                "fd --type f --exec stat --format '%Y %n' {} \\; | sort -rn | cut -d' ' -f2- | awk '{ sub(\"^./\", \"\"); print}'",
+            }
+        else
+            cmd = {
+                "sh",
+                "-c",
+                "find . -type f -exec stat -c '%Y %n' {} + | sort -rn | cut -d' ' -f2- | awk '{ sub(\"^./\", \"\"); print}'",
+            }
+        end
+        function AutoSession_search_session()
+            require("auto-session.session-lens").search_session({
+                find_command = cmd,
+                previewer = false,
+            })
+        end
+        vim.keymap.set("n", "<leader>s", AutoSession_search_session, { noremap = true })
     end,
 }

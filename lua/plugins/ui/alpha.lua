@@ -137,7 +137,8 @@ local buttons = {
     type = "group",
     val = {
         button("f", "󰈞  Find file", "<cmd>Telescope find_files<CR>"),
-        button("s", " " .. " Restore Session", [[:lua require("auto-session.session-lens").search_session() <cr>]]),
+        -- button("s", " " .. " Restore Session", [[:lua require("auto-session.session-lens").search_session() <cr>]]),
+        button("s", " " .. " Restore Session", [[:lua AutoSession_search_session() <cr>]]),
         button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
         button("q", " " .. " Quit", ":qa<CR>"),
     },
