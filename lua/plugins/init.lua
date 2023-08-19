@@ -42,6 +42,7 @@ local plugins = {
     require("plugins.utils.nvim-osc52"),
     require("plugins.utils.nvim-bufsurf"),
     require("plugins.utils.telescope-file-browser"),
+    require("plugins.utils.distant"),
 }
 local opts = {}
 require("lazy").setup({ plugins, opts })

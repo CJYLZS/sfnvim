@@ -28,7 +28,7 @@ return {
     },
     keys = {
         { "<c-space>", desc = "Increment selection" },
-        { "<bs>", desc = "Decrement selection", mode = "x" },
+        { "<bs>",      desc = "Decrement selection", mode = "x" },
     },
     ---@type TSConfig
     opts = {
@@ -68,6 +68,9 @@ return {
     },
     ---@param opts TSConfig
     config = function(_, opts)
+        if string.match(vim.loop.os_uname().sysname, "^Windows") then
+            require 'nvim-treesitter.install'.compilers = { "clang" }
+        end
         if type(opts.ensure_installed) == "table" then
             ---@type table<string, boolean>
             local added = {}
