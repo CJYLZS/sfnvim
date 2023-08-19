@@ -18,7 +18,7 @@ return {
             transparency = 35, -- disabled by default, allow floating win transparent value 1~100
             shadow_guibg = "Black",
             shadow_blend = 0, -- if you using shadow as border use this set the opacity
-            move_cursor_key = "<tab>",
+            -- move_cursor_key = "<tab>",
             select_signature_key = "<C-n>",
         })
     end,

@@ -25,13 +25,5 @@ return {
             limit_ft_matches = 4,
             repeat_ft_with_target_char = false,
         })
-        vim.cmd("unmap s")
-        vim.cmd("unmap S")
-        vim.cmd("unmap f")
-        vim.cmd("unmap F")
-        vim.api.nvim_set_keymap("n", "f", "<Plug>Lightspeed_s", {})
-        vim.api.nvim_set_keymap("n", "F", "<Plug>Lightspeed_S", {})
-        vim.api.nvim_set_keymap("v", "f", "<Plug>Lightspeed_s", {})
-        vim.api.nvim_set_keymap("v", "F", "<Plug>Lightspeed_S", {})
     end,
 }
