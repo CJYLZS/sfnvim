@@ -36,7 +36,7 @@ return {
         indent = { enable = true },
         ensure_installed = {
             "bash",
-            -- "c",
+            "c",
             "cpp",
             -- "html",
             -- "javascript",
