@@ -11,6 +11,15 @@ return {
         { "<leader>F", ":Telescope find_files <CR>", desc = "find files" },
     },
     dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+        require("telescope").setup({
+            pickers = {
+                buffers = {
+                    sort_lastused = true,
+                },
+            },
+        })
+    end,
 }
 
 -- fuzzy finder

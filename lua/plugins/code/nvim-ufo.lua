@@ -1,6 +1,7 @@
 -- code fold
 return {
     "kevinhwang91/nvim-ufo",
+    commit = '1c3eb7e3980246c432a037acbead2f0b0f0e2fa5', -- break after this commit
     event = { "BufReadPost" },
     dependencies = {
         "kevinhwang91/promise-async",
@@ -28,11 +29,6 @@ return {
             end,
         },
     },
-    opts = {
-        provider_selector = function(bufnr, filetype, buftype)
-            return { "treesitter", "indent" }
-        end,
-    },
     config = function()
         vim.o.foldenable = true -- enable fold for nvim-ufo
         vim.o.foldlevel = 99 -- set high foldlevel for nvim-ufo
@@ -45,6 +41,10 @@ return {
         vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Fold less" })
         vim.keymap.set("n", "zm", require("ufo").closeFoldsWith, { desc = "Fold more" })
         vim.keymap.set("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek fold" })
-        require("ufo").setup()
+        require("ufo").setup({
+            provider_selector = function(bufnr, filetype, buftype)
+                return { "treesitter", "indent" }
+            end,
+        })
     end,
 }
