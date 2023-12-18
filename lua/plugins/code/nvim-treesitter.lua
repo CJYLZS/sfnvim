@@ -38,6 +38,7 @@ return {
             "bash",
             "c",
             "cpp",
+            "go",
             -- "html",
             -- "javascript",
             "json",

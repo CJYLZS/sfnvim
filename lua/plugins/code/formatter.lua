@@ -16,10 +16,14 @@ end
 local function sh_formatter(filepath)
     system("shfmt -i 4 -w " .. vim.fn.shellescape(filepath))
 end
+local function go_formatter(filepath)
+    system("gofmt -s -w " .. vim.fn.shellescape(filepath))
+end
 local formatter_table = {
     py = py_formatter,
     lua = lua_formatter,
     sh = sh_formatter,
+    go = go_formatter,
 }
 
 function GetFileExtension(filepath)

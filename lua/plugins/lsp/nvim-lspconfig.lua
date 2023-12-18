@@ -24,7 +24,7 @@ return {
                             pylint = { enabled = false },
                             pyflakes = { enabled = false },
                             flake8 = {
-                                enabled = true
+                                enabled = true,
                             },
                             jedi = {
                                 -- extra analyze path
@@ -103,6 +103,11 @@ return {
                 --         command = "EslintFixAll",
                 --     })
                 -- end,
+            })
+        end
+        if vim.fn.executable("gopls") == 1 then
+            lspconfig.gopls.setup({
+                on_attach = on_attach,
             })
         end
     end,

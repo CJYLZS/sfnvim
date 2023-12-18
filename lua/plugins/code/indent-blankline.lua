@@ -4,24 +4,6 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     main = "ibl",
     opts = {
-        scope = {
-            enabled = false
-        },
-        -- -- char = "▏",
-        -- char = "│",
-        -- filetype_exclude = {
-        --     "help",
-        --     "alpha",
-        --     "dashboard",
-        --     "neo-tree",
-        --     "Trouble",
-        --     "lazy",
-        --     "mason",
-        --     "notify",
-        --     "toggleterm",
-        --     "lazyterm",
-        -- },
-        -- show_trailing_blankline_indent = false,
-        -- show_current_context = true,
     },
 }
+
