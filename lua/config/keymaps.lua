@@ -52,6 +52,30 @@ local function buffer_include(name)
     end
     return true
 end
+
+local function get_sessions()
+    local dir = vim.fn.expand("~/.local/share/nvim/sessions/")
+    local files = {}
+    for _, name in ipairs(vim.fn.readdir(dir)) do
+        local session = dir .. name
+        table.insert(files, { name = name:gsub("%%", "/"):gsub("%.vim$", ""), modify_date = vim.fn.getftime(session) })
+    end
+
+    -- Sort files by modification date (most recent first)
+    table.sort(files, function(a, b)
+        return a.modify_date > b.modify_date
+    end)
+    local results = {}
+    for _, file in ipairs(files) do
+        table.insert(results, file.name)
+    end
+    return results
+end
+
+local function debug(any)
+    vim.notify(vim.inspect(any))
+end
+
 -- jump into file directory
 vim.keymap.set("n", "<leader>G", function()
     local bufname = vim.api.nvim_buf_get_name(0)
@@ -59,8 +83,16 @@ vim.keymap.set("n", "<leader>G", function()
         return
     end
     local dirname = vim.fs.dirname(bufname)
+    for _, session in ipairs(get_sessions()) do
+        if string.sub(dirname, 1, string.len(session)) == session then
+            vim.cmd(
+                'lua require("auto-session").RestoreSession(\'' .. session .. "')"
+            )
+            return
+        end
+    end
     vim.cmd("cd " .. dirname)
-end)
+end, {desc='attach or cd to file path'})
 
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
