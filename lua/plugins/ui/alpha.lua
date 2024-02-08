@@ -69,7 +69,7 @@ local function get_sessions()
             position = "center",
             shortcut = shortcut,
             cursor = 1,
-            width = 50,
+            width = 100,
             align_shortcut = "right",
             hl = "Keyword",
             hl_shortcut = "AlphaShortcut",

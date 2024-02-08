@@ -1,7 +1,8 @@
 -- highlight same word under ths cursor
 return {
     "yamatsum/nvim-cursorline",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
+    event = { "BufEnter" },
     config = function()
         vim.cmd("hi CursorWord guibg=#484848")
         require("nvim-cursorline").setup({
@@ -16,8 +17,7 @@ return {
                 hl = {
                     -- not work, temporarily use hi CursorWord ...
                     -- https://neovim.io/doc/user/api.html#nvim_set_hl()
-                    -- underline = true,
-                    -- guifg = "#484848",
+                    underline = false,
                 },
             },
         })
