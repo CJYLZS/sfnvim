@@ -1,6 +1,5 @@
 return {
     "nvim-treesitter/playground",
-    cmd = { "TSH", "TSP" },
     config = function()
         require("nvim-treesitter.configs").setup({
             playground = {
