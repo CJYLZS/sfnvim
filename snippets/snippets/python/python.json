@@ -5,5 +5,12 @@
       "f'{$1}$2'$3"
     ],
     "description": "Inserts a Python f-string"
+  },
+  "Pytest-Debug": {
+    "prefix": "pmd",
+    "body": [
+      "@pytest.mark.debug"
+    ],
+    "description": "Inserts a pytest @pytest.mark.debug"
   }
 }
