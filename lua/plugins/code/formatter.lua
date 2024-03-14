@@ -8,7 +8,7 @@ local function system(cmd)
     end
 end
 local function py_formatter(filepath)
-    system("python3 -m autopep8 -i " .. vim.fn.shellescape(filepath))
+    system("python3 -m autopep8 --ignore=E501,E402 -i " .. vim.fn.shellescape(filepath))
 end
 local function lua_formatter(filepath)
     system("stylua --indent-type Spaces --indent-width 4 " .. vim.fn.shellescape(filepath))

@@ -8,9 +8,9 @@ local options = {
     smarttab = true,
     expandtab = true,
     list = true,
-    signcolumn = "yes" -- always set signcolumn, prevent text move when first sign occured
+    signcolumn = "yes", -- always set signcolumn, prevent text move when first sign occured
+    shada = "!,'20,f1,<50,s10,h", -- https://vi.stackexchange.com/questions/37863/limit-the-amount-of-oldfiles-in-vim-and-neovim
 }
 for key, value in pairs(options) do
     vim.o[key] = value
 end
-

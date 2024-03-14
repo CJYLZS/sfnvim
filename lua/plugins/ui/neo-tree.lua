@@ -1,4 +1,3 @@
--- file tree
 return {
     "nvim-neo-tree/neo-tree.nvim",
     -- branch = "v2.x",
@@ -182,6 +181,8 @@ return {
                         ["<c-x>"] = "clear_filter",
                         ["[g"] = "prev_git_modified",
                         ["]g"] = "next_git_modified",
+                        ["s"] = "noop",
+                        ["S"] = "noop",
                     },
                     fuzzy_finder_mappings = {
                         -- define keymaps for filter popup window in fuzzy_finder_mode

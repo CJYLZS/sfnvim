@@ -17,6 +17,10 @@ return {
                 buffers = {
                     sort_lastused = true,
                 },
+                oldfiles = {
+                    include_current_session = false,
+                    cwd_only = false,
+                },
             },
         })
     end,

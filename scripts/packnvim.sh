@@ -1,4 +1,5 @@
-
+curdir=$(pwd)
+cd /tmp/
 
 rm -rf nvim
 mkdir -p nvim
@@ -22,5 +23,5 @@ cd ..
 zip -qr nvim.zip nvim/
 rm -rf nvim
 
-
+cp nvim.zip $curdir/
 
